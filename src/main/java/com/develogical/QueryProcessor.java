@@ -1,5 +1,7 @@
 package com.develogical;
 
+import java.util.ArrayList;
+
 public class QueryProcessor {
 
     public String process(String query) {
@@ -13,12 +15,20 @@ public class QueryProcessor {
             return "dark-forest-666";
         }
 
-        var splitted = query.toLowerCase().split(" ");
+        String[] splitted = query.toLowerCase().split(" ");
         ArrayList<String> words = new ArrayList<>();
         words.addAll(splitted);
 
         if (words.contains("plus")) {
             return Integer.parseInt(words.get(words.size()-3)) + Integer.parseInt(words.get(words.size()-1));
+        }
+
+        if (words.contains("largest")) {
+            String listOfNumbers = query.toLowerCase().split(":")[1];
+
+            ArrayList<String> numbers = new ArrayList<>();
+            numbers.addAll(query.toLowerCase().split(","));
+            //return Integer.parseInt(words.get(words.size()-3)) + Integer.parseInt(words.get(words.size()-1));
         }
 
 
