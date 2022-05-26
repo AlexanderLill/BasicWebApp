@@ -10,8 +10,17 @@ public class QueryProcessor {
         }
 
         if (query.toLowerCase().contains("name")) {
-            return "dark-forest-666"
+            return "dark-forest-666";
         }
+
+        var splitted = query.toLowerCase().split(" ");
+        ArrayList<String> words = new ArrayList<>();
+        words.addAll(splitted);
+
+        if (words.contains("plus")) {
+            return Integer.parseInt(words.get(words.size()-3)) + Integer.parseInt(words.get(words.size()-1));
+        }
+
 
         return "";
     }
